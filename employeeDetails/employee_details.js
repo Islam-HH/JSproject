@@ -46,18 +46,37 @@ function displayHREmployees(){
     
 }
 
-function findEmployeeById(employeeId){
+function findEmployeeById(){
+    const employeeIdInput = prompt('Please enter the Id');
+    
+    const employeeId = parseFloat(employeeIdInput);
 
     const foundEmployee = employees.find(findEmployee);
 
     function findEmployee (employee){
         return employee.id === employeeId;
     }
-    
-    if (foundEmployee.id === employeeId){
+
+    console.log (foundEmployee);
+
+    if (foundEmployee){
         document.getElementById('employeesDetails').innerHTML = `<p> ${foundEmployee.id}: ${foundEmployee.name} - ${foundEmployee.age} - ${foundEmployee.department} - $${foundEmployee.salary}</p>`;
     }
     else {
         document.getElementById('employeesDetails').innerHTML = `<p>no employee has been found with this ID`;
     }
+}
+
+function addEmployee(){
+
+    let newEmployee = {
+        id : employees.length + 1,
+        name : prompt(`Enter employee's name`),
+        age : prompt(`Enter employee's age`),
+        department : prompt(`Enter employee's department`),
+        salary : prompt(`Enter employee's salary`)
+    };
+
+    employees.push(newEmployee);
+
 }
