@@ -31,7 +31,8 @@ function showBooks(){ //print the new book info to a div
         <p><strong>Author Name: </strong> ${book.authorName}</p>
         <p><strong>Book Description: </strong> ${book.bookDescription}</p>
         <p><strong>No. of Pages:</strong> ${book.pagesNumber}</p>
-        <button onclick = "editBook(${index})">Edit</button>`
+        <button onclick = "editBook(${index})">Edit</button>
+        <button onclick = "deleteBook(${index})">Delete</button>`
     }
 
     document.getElementById('books').innerHTML = bookDiv.join('');
@@ -56,5 +57,10 @@ function editBook(index){
 
     books.splice(index, 1);
     showBooks();
-    
+
+}
+
+function deleteBook(index){
+    books.splice(index,1);
+    showBooks();
 }
