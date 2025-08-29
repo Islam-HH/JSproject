@@ -6,6 +6,8 @@ const clearTasksBtn = document.getElementById('clearTasksBtn');
 
 let tasks = [];
 
+taskInput.focus();
+
 function addTask() {
     const taskText = taskInput.value.trim();
     
@@ -56,10 +58,16 @@ function clearTasks(){
 
     tasks.splice(0, tasks.length);
     displayTasks();
-    
+
 }
 
 addTaskBtn.addEventListener("click",addTask);
+taskInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        addTask();
+        focus();
+    }
+});
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
 clearTasksBtn.addEventListener("click", clearTasks);
 displayTasks();
