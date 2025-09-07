@@ -101,9 +101,9 @@ function startGameTimer(timeLeft) {
 
         if (timeLeft === 0) {
             clearInterval(gameInterval);
+            let timeLeft = 30;
             alert('Game Over!');
             startbtn.disabled = false;
-            gameContainer.removeEventListener('click',handleCardClick);
         }
     }, 1000);
 }
